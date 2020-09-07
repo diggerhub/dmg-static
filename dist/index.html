@@ -1,13 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/main.css">
-<title>Document</title>
+    <script src="js/main.js"></script>
+    <title>DMG Static</title>
 </head>
 <body>
-
+<div id="site-container">
+    <div id="top-bar">
+        <a href="#" class="filterIconContainer">
+            <object type="image/svg+xml" data="media/icons/filter.svg" class="filterIcon icon">
+                <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+            </object>
+        </a>
+        <div id="search-bar">
+            <input type="search" placeholder="Search" class="searchInput rounded desktop">
+            <div class="searchBtn rounded centered">
+                <object type="image/svg+xml" data="media/icons/search.svg" class="searchIcon">
+                    <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                </object>
+            </div>
+        </div>
+        <nav class="mainNavigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <object type="image/svg+xml" data="media/icons/account.svg" class="accountIcon icon">
+                            <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                        </object>
+                        <h5 class="desktop">Account</h5>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <object type="image/svg+xml" data="media/icons/orders.svg" class="ordersIcon icon">
+                            <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                        </object>
+                        <h5 class="desktop">Orders</h5>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <object type="image/svg+xml" data="media/icons/cart.svg" class="cartIcon icon">
+                            <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                        </object>
+                        <h5 class="desktop">Cart</h5>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="result-container">
+        <div id="result-header">
+            <h1>Recommended Products</h1>
+            <div class="utilBar desktop">
+                <h4>Selected Filters:</h4>
+                <div class="selectedFilters rounded">
+                    <h4>Continental</h4>
+                    <object type="image/svg+xml" data="media/icons/close.svg" class="closeIcon">
+                        <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                    </object>
+                </div>
+                <h4>Sort by:</h4>
+                <select name="sort">
+                    <option value="0">option1</option>
+                    <option value="1">option2</option>
+                    <option value="2">option3</option>
+                    <option value="3">option4</option>
+                </select>
+            </div>
+        </div>
+        <div id="promoted-results">
+            <div class="promotedCard"></div>
+        </div>
+        <div id="query-results">
+            <div class="resultCard"></div>
+        </div>
+        <div id="more-results-btn"></div>
+    </div>
+</div>
 </body>
 </html>

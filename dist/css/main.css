@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -41,4 +41,231 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+input {
+  box-shadow: none;
+  border-style: solid;
+}
+
+a {
+  color: inherit;
+  text-decoration: initial;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #F4F4F4;
+}
+
+#site-container {
+  width: 100%;
+  height: 100%;
+  font-family: Calibri, sans-serif;
+}
+
+#top-bar {
+  height: 56px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: row;
+  background: #FFF;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+#top-bar .filterIconContainer {
+  margin-right: auto;
+  margin-left: 12px;
+}
+
+#top-bar #search-bar {
+  height: 29px;
+  width: 29px;
+  position: relative;
+}
+
+#top-bar .searchBtn {
+  height: 25px;
+  width: 25px;
+  background: #FFA500;
+}
+
+#top-bar .searchBtn .searchIcon {
+  width: 55%;
+  height: 55%;
+  display: block;
+}
+
+#top-bar .mainNavigation {
+  width: 100px;
+  margin: 0 10px 0 6px;
+}
+
+#top-bar .mainNavigation ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#top-bar .mainNavigation ul object {
+  display: block;
+  margin: 4px auto;
+}
+
+#top-bar a {
+  display: inline-block;
+}
+
+#top-bar a object {
+  pointer-events: none;
+}
+
+#top-bar a:hover object {
+  filter: invert(100%) sepia(4%) saturate(4%) hue-rotate(356deg) brightness(105%) contrast(100%);
+}
+
+#top-bar a:hover h5 {
+  color: black;
+}
+
+#result-container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  border-bottom: 2px solid #9C9D9D;
+}
+
+#result-container h1 {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin: 12px 0;
+}
+
+.desktop {
+  display: none;
+}
+
+.rounded {
+  border-radius: 50px;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background: #F4F4F4;
+  }
+  #top-bar {
+    height: 80px;
+  }
+  #top-bar .filterIcon {
+    margin-left: 18px;
+  }
+  #top-bar #search-bar {
+    height: 40px;
+    width: 40%;
+    position: relative;
+    margin: 0 auto;
+  }
+  #top-bar .searchInput {
+    height: inherit;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #9C9D9D;
+  }
+  #top-bar .searchBtn {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    right: 3px;
+    top: calc(50% - 18px);
+    background: #FFA500;
+  }
+  #top-bar .mainNavigation {
+    width: 200px;
+  }
+  #top-bar .mainNavigation ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #top-bar .mainNavigation .cartIcon {
+    width: 29px;
+    height: 29px;
+  }
+  #result-container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #9C9D9D;
+  }
+  #result-container h1 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 25px 0;
+  }
+  #result-container .utilBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #9C9D9D;
+    padding-bottom: 6px;
+  }
+  #result-container .utilBar h4 {
+    display: inline-block;
+    font-size: 0.9em;
+  }
+  #result-container .utilBar .selectedFilters {
+    width: 106px;
+    display: inline-flex;
+    border: 1px solid #9C9D9D;
+    padding: 6px 10px;
+    margin-right: auto;
+  }
+  #result-container .utilBar .closeIcon {
+    width: 0.9em;
+    margin-left: 10px;
+  }
+  h5 {
+    color: #9c9d9d;
+    font-size: 0.75em;
+    font-weight: 500;
+    text-align: center;
+  }
+  .desktop {
+    display: block;
+  }
+  .icon {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    background: red;
+  }
+  .desktop {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  body {
+    background: rebeccapurple;
+  }
+  .desktop {
+    display: block;
+  }
 }

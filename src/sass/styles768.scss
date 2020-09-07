@@ -1,3 +1,104 @@
 @media only screen and (min-width: 768px) {
+  body {
+    background: $background;
+  }
+  //////// Top bar elements
+  #top-bar {
+    height: 80px;
 
+    .filterIcon {
+      margin-left: 18px;
+    }
+
+    #search-bar {
+      height: 40px;
+      width: 40%;
+      position: relative;
+      margin: 0 auto;
+    }
+    .searchInput {
+      height: inherit;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $border;
+    }
+    .searchBtn {
+      height: 35px;
+      width: 35px;
+      position: absolute;
+      right: 3px;
+      top: calc(50% - 18px);
+      background: $highlight;
+    }
+
+    .mainNavigation {
+      width: 200px;
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .cartIcon {
+        width: 29px;
+        height: 29px;
+      }
+    }
+  }
+
+  //////// results section
+  #result-container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid $border;
+
+    h1 {
+      font-weight: 600;
+      font-size: 1.25em;
+      margin: 25px 0;
+    }
+    .utilBar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 1px solid $border;
+      padding-bottom: 6px;
+      h4 {
+        display: inline-block;
+        font-size: 0.9em;
+      }
+      .selectedFilters {
+        width: 106px;
+        display: inline-flex;
+        border: 1px solid $border;
+        padding: 6px 10px;
+        margin-right: auto;
+      }
+      .closeIcon {
+        width: 0.9em;
+        margin-left: 10px;
+      }
+    }
+  }
+
+
+  //////// Text styling
+  h5 {
+    color: $text-nav;
+    font-size: 0.75em;
+    font-weight: 500;
+    text-align: center;
+  }
+  /////// Display classes
+  .desktop {
+    display: block;
+  }
+
+  /////// Utility classes
+  .icon {
+    width: 27px;
+    height: 27px;
+  }
 }

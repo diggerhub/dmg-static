@@ -1,0 +1,6 @@
+<?xml-stylesheet type="text/css" href="../../css/main.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.871 25.633">
+    <ellipse cx="2.193" cy="2.193" rx="2.193" ry="2.193" transform="translate(7.239 21.247)" fill="#9c9d9d"/>
+    <ellipse cx="2.193" cy="2.193" rx="2.193" ry="2.193" transform="translate(22.149 21.247)" fill="#9c9d9d"/>
+    <path d="M41.063,80.02H58.508L61.071,67.2H38.8L38.236,64H32v2.136h4.444l3.2,18.157H58.7V82.157H41.44Z" transform="translate(-32 -64)" fill="#9c9d9d"/>
+</svg>

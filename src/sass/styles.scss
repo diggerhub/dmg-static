@@ -1,0 +1,103 @@
+///////// Container elements
+body {
+  width: 100%;
+  height: 100%;
+  background: $background;
+}
+#site-container {
+  width: 100%;
+  height: 100%;
+  font-family: Calibri, sans-serif
+}
+
+//////// Top bar elements
+#top-bar {
+  height: 56px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: row;
+  background: $foreground;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.05);
+
+  .filterIconContainer {
+    margin-right: auto;
+    margin-left: 12px;
+  }
+
+  #search-bar {
+    height: 29px;
+    width: 29px;
+    position: relative;
+  }
+  .searchBtn {
+    height: 25px;
+    width: 25px;
+    background: $highlight;
+    .searchIcon {
+      width: 55%;
+      height: 55%;
+      display: block;
+    }
+  }
+
+  .mainNavigation {
+    width: 100px;
+    margin: 0 10px 0 6px;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      object {
+        display: block;
+        margin: 4px auto;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    object {
+      pointer-events: none;
+    }
+    &:hover {
+      object {
+        filter: invert(100%) sepia(4%) saturate(4%) hue-rotate(356deg) brightness(105%) contrast(100%);}
+      h5 { color: black }
+    }
+  }
+}
+
+//////// results section
+#result-container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  border-bottom: 2px solid $border;
+
+  h1 {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 12px 0;
+  }
+}
+
+/////// Display classes
+.desktop {
+  display: none;
+}
+
+/////// Utility classes
+.rounded {
+  border-radius: 50px;
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
