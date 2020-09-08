@@ -65,12 +65,22 @@
                     </object>
                 </div>
                 <h4>Sort by:</h4>
-                <select name="sort">
-                    <option value="0">option1</option>
-                    <option value="1">option2</option>
-                    <option value="2">option3</option>
-                    <option value="3">option4</option>
-                </select>
+                <div class="sortList">
+                    <div class="outerBorder rounded"></div>
+                    <div class="labelBackground dropAnimation"></div>
+                    <div class="sortLabel">
+                        <h4>Popularity</h4>
+                        <object type="image/svg+xml" data="media/icons/dropdown.svg" class="dropDownIcon">
+                            <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                        </object>
+                    </div>
+                    <ul class="dropDown dropAnimation">
+                        <li><a href="#">Lowest Price</a></li>
+                        <li><a href="#">Most Stock</a></li>
+                        <li><a href="#">Model A - Z</a></li>
+                        <li><a href="#">Code No.</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div id="promoted-results">

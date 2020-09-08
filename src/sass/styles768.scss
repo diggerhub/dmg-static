@@ -65,26 +65,114 @@
       align-items: center;
       border-bottom: 1px solid $border;
       padding-bottom: 6px;
-      h4 {
-        display: inline-block;
-        font-size: 0.9em;
-      }
       .selectedFilters {
         width: 106px;
         display: inline-flex;
         border: 1px solid $border;
         padding: 6px 10px;
-        margin-right: auto;
+        margin: 0 auto 0 2px;
       }
       .closeIcon {
         width: 0.9em;
         margin-left: 10px;
       }
+      .sortList {
+        cursor: pointer;
+        position: relative;
+
+        .outerBorder {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          border: 1px solid $border;
+        }
+        .sortLabel {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 6px 10px;
+          box-sizing: border-box;
+          position: relative;
+          z-index: 2;
+
+          .dropDownIcon {
+            margin-left: 2px;
+          }
+        }
+        .labelBackground {
+          width: 100%;
+          height: 100%;
+          background: white;
+          box-sizing: border-box;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+        .dropDown {
+          width: 100%;
+          max-height: 0;
+          position: absolute;
+          font-size: 0.85em;
+          background: white;
+          box-sizing: border-box;
+          li {
+            padding: 10px 5px 8px 10px;
+            opacity: 0;
+            &:first-of-type {
+              position: relative;
+              padding-top: 15px;
+              &:after {
+                content: "";
+                background: $background;
+                position: absolute;
+                top: 0;
+                left: 5%;
+                height: 2px;
+                width: 85%;
+              }
+            }
+          }
+        }
+        .outerBorder, .dropDown, .dropDown li, .labelBackground, .dropDownIcon  {
+          transition: 0.2s ease-in-out;
+        }
+        .dropDown, .labelBackground {
+          transform: translateX(200px);
+        }
+        .dropDownMoveIn {
+          transform: translateX(0);
+        }
+        .outerBorderMoveOut {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        .dropDownExpend {
+          max-height: 500px;
+        }
+        .dropDownExpend li{
+          opacity: 1;
+        }
+        .dropDownRotate {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    #promoted-results {
+      background: #FFA500;
+      height: 200px;
     }
   }
 
 
   //////// Text styling
+  h4 {
+    display: inline-block;
+    font-size: 0.9em;
+  }
+
   h5 {
     color: $text-nav;
     font-size: 0.75em;
@@ -101,4 +189,5 @@
     width: 27px;
     height: 27px;
   }
+  /////// Animation
 }
