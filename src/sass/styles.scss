@@ -45,7 +45,6 @@ body {
   .mainNavigation {
     width: 100px;
     margin: 0 10px 0 6px;
-
     ul {
       display: flex;
       justify-content: space-around;
@@ -56,8 +55,50 @@ body {
         margin: 4px auto;
       }
     }
+    .accountDropDown {
+      width: 150px;
+      position: absolute;
+      left: -65px;
+      top: 42px;
+      background: $accountDropDown;
+      color: white;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      display: none;
+      &:after {
+        position: absolute;
+        left: calc(50% - 10px);
+        top: -10px;
+        width: 0;
+        height: 0;
+        content: '';
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $accountDropDown;
+      }
+      li {
+        padding: 14px;
+        font-size: 0.9em;
+
+        &:first-child {
+          border-bottom: 2px solid white;
+        }
+        &:not(:first-child):not(:last-child) {
+          border-bottom: 1px solid $border;
+        }
+      }
+    }
+    .fadeIn {
+      display: block;
+      opacity: 1 ;
+    }
   }
-  a {
+  .account {
+    cursor: pointer;
+    position: relative;
+  }
+  a, .account {
     display: inline-block;
     object {
       pointer-events: none;
@@ -82,10 +123,17 @@ body {
     font-size: 1.1em;
     margin: 12px 0;
   }
+  #promoted-results {
+    background: #FFA500;
+    height: 200px;
+  }
 }
 
 /////// Display classes
 .desktop {
+  display: none;
+}
+.hidden {
   display: none;
 }
 

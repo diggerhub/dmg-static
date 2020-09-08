@@ -5,11 +5,9 @@
   //////// Top bar elements
   #top-bar {
     height: 80px;
-
     .filterIcon {
       margin-left: 18px;
     }
-
     #search-bar {
       height: 40px;
       width: 40%;
@@ -30,7 +28,6 @@
       top: calc(50% - 18px);
       background: $highlight;
     }
-
     .mainNavigation {
       width: 200px;
 
@@ -38,6 +35,10 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+      }
+      .accountDropDown {
+        left: -52px;
+        top: 64px;
       }
 
       .cartIcon {
@@ -77,7 +78,6 @@
         margin-left: 10px;
       }
       .sortList {
-        cursor: pointer;
         position: relative;
 
         .outerBorder {
@@ -95,6 +95,7 @@
           box-sizing: border-box;
           position: relative;
           z-index: 2;
+          cursor: pointer;
 
           .dropDownIcon {
             margin-left: 2px;
@@ -120,6 +121,10 @@
           li {
             padding: 10px 5px 8px 10px;
             opacity: 0;
+            a {
+              display: block;
+              width: 100%;
+            }
             &:first-of-type {
               position: relative;
               padding-top: 15px;

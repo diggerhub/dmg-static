@@ -1,35 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const dropDownParent =  document.getElementsByClassName('sortList')[0],
-          dropDownIcon = document.getElementsByClassName('dropDownIcon')[0],
-          dropDownBg = document.getElementsByClassName('labelBackground')[0],
-          dropDown = document.getElementsByClassName('dropDown')[0];
+    const dropDownParent    = document.getElementsByClassName('sortList')[0],
+          dropDownIcon      = document.getElementsByClassName('dropDownIcon')[0],
+          dropDownBg        = document.getElementsByClassName('labelBackground')[0],
+          dropDownLabel     = document.getElementsByClassName('sortLabel')[0].getElementsByTagName('h4')[0],
+          dropDown          = document.getElementsByClassName('dropDown')[0],
+          accountParent     = document.getElementsByClassName('account')[0];
 
-    dropDownParent.addEventListener('click', (e) => {
+
+    let isDropDownExtended = () => dropDown.classList.contains('dropDownExpend');
+
+    let BgAnimationHandler = event => {
+        dropDown.classList.add('dropDownExpend');
+        dropDownIcon.classList.add('dropDownRotate');
+        dropDownBg.removeEventListener('transitionend', BgAnimationHandler);
+    }
+
+    let updateDropDownLabel = target => {
+        let oldLabel = dropDownLabel.innerHTML;
+        dropDownLabel.innerHTML = target.text;
+        for (elm of dropDown.children) {
+            elm.classList.remove('hidden');
+            if (elm.innerText === dropDownLabel.innerHTML) elm.classList.add('hidden');
+        }
+    }
+
+    let dropDownAnimationHandler = event => {
         for (elm of dropDownParent.children) {
             if (elm.classList.contains('outerBorder')) {
-                if (elm.classList.contains('outerBorderMoveOut')) {
-                    elm.classList.remove('outerBorderMoveOut');
-                } else {
-                    elm.classList.add('outerBorderMoveOut');
-                }
+                elm.classList.remove('outerBorderMoveOut');
             }
             if (elm.classList.contains('dropAnimation')) {
-                if (elm.classList.contains('dropDownMoveIn')) {
-                    elm.classList.remove('dropDownMoveIn');
-                } else {
+                elm.classList.remove('dropDownMoveIn');
+            }
+        }
+        dropDown.removeEventListener('transitionend', dropDownAnimationHandler);
+    }
+
+    dropDownParent.addEventListener('click', event => {
+        if (event.target.tagName === 'A') updateDropDownLabel(event.target);
+        if (!isDropDownExtended()) {
+            for (elm of dropDownParent.children) {
+                if (elm.classList.contains('outerBorder')) {
+                    elm.classList.add('outerBorderMoveOut');
+                }
+                if (elm.classList.contains('dropAnimation')) {
                     elm.classList.add('dropDownMoveIn');
                 }
             }
-
-        }
-    })
-    dropDownBg.addEventListener('transitionend', () => {
-        if (dropDown.classList.contains('dropDownExpend')) {
-            dropDown.classList.remove('dropDownExpend')
-            dropDownIcon.classList.remove('dropDownRotate');
+            dropDownBg.addEventListener('transitionend', BgAnimationHandler)
         } else {
-            dropDown.classList.add('dropDownExpend');
-            dropDownIcon.classList.add('dropDownRotate');
+            dropDown.classList.remove('dropDownExpend');
+            dropDownIcon.classList.remove('dropDownRotate');
+            dropDown.addEventListener('transitionend', dropDownAnimationHandler)
         }
-    })
+    });
+    accountParent.addEventListener('click', event =>
+        accountParent.children[2].classList.contains('fadeIn')
+            ? accountParent.children[2].classList.remove('fadeIn')
+            : accountParent.children[2].classList.add('fadeIn')
+    )
+
 });

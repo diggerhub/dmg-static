@@ -26,13 +26,17 @@
         </div>
         <nav class="mainNavigation">
             <ul>
-                <li>
-                    <a href="#">
-                        <object type="image/svg+xml" data="media/icons/account.svg" class="accountIcon icon">
-                            <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
-                        </object>
-                        <h5 class="desktop">Account</h5>
-                    </a>
+                <li class="account">
+                    <object type="image/svg+xml" data="media/icons/account.svg" class="accountIcon icon">
+                        <!-- fallback image <img src="svg-no.png" alt="No SVG support"> -->
+                    </object>
+                    <h5 class="desktop">Account</h5>
+                    <ul class="accountDropDown">
+                        <li><a href="">Account</a></li>
+                        <li><a href="">Call Us</a></li>
+                        <li><a href="">Give Feedback</a></li>
+                        <li>Log Out</li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#">
@@ -75,6 +79,7 @@
                         </object>
                     </div>
                     <ul class="dropDown dropAnimation">
+                        <li class="hidden"><a href="#">Popularity</a></li>
                         <li><a href="#">Lowest Price</a></li>
                         <li><a href="#">Most Stock</a></li>
                         <li><a href="#">Model A - Z</a></li>

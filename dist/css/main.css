@@ -115,19 +115,67 @@ body {
   margin: 4px auto;
 }
 
-#top-bar a {
+#top-bar .mainNavigation .accountDropDown {
+  width: 150px;
+  position: absolute;
+  left: -65px;
+  top: 42px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: none;
+}
+
+#top-bar .mainNavigation .accountDropDown:after {
+  position: absolute;
+  left: calc(50% - 10px);
+  top: -10px;
+  width: 0;
+  height: 0;
+  content: '';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.9);
+}
+
+#top-bar .mainNavigation .accountDropDown li {
+  padding: 14px;
+  font-size: 0.9em;
+}
+
+#top-bar .mainNavigation .accountDropDown li:first-child {
+  border-bottom: 2px solid white;
+}
+
+#top-bar .mainNavigation .accountDropDown li:not(:first-child):not(:last-child) {
+  border-bottom: 1px solid #9C9D9D;
+}
+
+#top-bar .mainNavigation .fadeIn {
+  display: block;
+  opacity: 1;
+}
+
+#top-bar .account {
+  cursor: pointer;
+  position: relative;
+}
+
+#top-bar a, #top-bar .account {
   display: inline-block;
 }
 
-#top-bar a object {
+#top-bar a object, #top-bar .account object {
   pointer-events: none;
 }
 
-#top-bar a:hover object {
+#top-bar a:hover object, #top-bar .account:hover object {
   filter: invert(100%) sepia(4%) saturate(4%) hue-rotate(356deg) brightness(105%) contrast(100%);
 }
 
-#top-bar a:hover h5 {
+#top-bar a:hover h5, #top-bar .account:hover h5 {
   color: black;
 }
 
@@ -144,7 +192,16 @@ body {
   margin: 12px 0;
 }
 
+#result-container #promoted-results {
+  background: #FFA500;
+  height: 200px;
+}
+
 .desktop {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
@@ -201,6 +258,10 @@ body {
     justify-content: space-around;
     align-items: center;
   }
+  #top-bar .mainNavigation .accountDropDown {
+    left: -52px;
+    top: 64px;
+  }
   #top-bar .mainNavigation .cartIcon {
     width: 29px;
     height: 29px;
@@ -235,7 +296,6 @@ body {
     margin-left: 10px;
   }
   #result-container .utilBar .sortList {
-    cursor: pointer;
     position: relative;
   }
   #result-container .utilBar .sortList .outerBorder {
@@ -253,6 +313,7 @@ body {
     box-sizing: border-box;
     position: relative;
     z-index: 2;
+    cursor: pointer;
   }
   #result-container .utilBar .sortList .sortLabel .dropDownIcon {
     margin-left: 2px;
@@ -278,6 +339,10 @@ body {
   #result-container .utilBar .sortList .dropDown li {
     padding: 10px 5px 8px 10px;
     opacity: 0;
+  }
+  #result-container .utilBar .sortList .dropDown li a {
+    display: block;
+    width: 100%;
   }
   #result-container .utilBar .sortList .dropDown li:first-of-type {
     position: relative;
