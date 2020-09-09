@@ -197,7 +197,7 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-auto-flow: column;
-  grid-auto-columns: 85%;
+  grid-auto-columns: minmax(310px, 85%);
   grid-column-gap: 10px;
   overflow-x: scroll;
   -ms-scroll-snap-type: x mandatory;
@@ -205,6 +205,7 @@ body {
 }
 
 #result-container #promoted-results .promotedCard {
+  max-width: 500px;
   position: relative;
   margin-top: 20px;
   padding-top: 20px;
@@ -227,19 +228,16 @@ body {
   font-size: 0.8em;
 }
 
+#result-container #promoted-results .promotedCard .cardHeader {
+  grid-column: 2 / span 3;
+  grid-row: 1 /span 1;
+}
+
 #result-container #promoted-results .promotedCard > img {
   width: 100%;
   max-width: 150px;
   grid-column: 1 / span 1;
   grid-row: 1 /span 2;
-}
-
-#result-container #promoted-results .promotedCard h2 {
-  font-size: 1em;
-  font-weight: 500;
-  text-decoration: underline;
-  grid-column: 2 / span 3;
-  grid-row: 1 /span 1;
 }
 
 #result-container #promoted-results .promotedCard .modelContainer {
@@ -277,6 +275,7 @@ body {
 #result-container #promoted-results .promotedCard .stockAndPriceContainer object {
   display: block;
   margin: 0 auto;
+  width: 15px;
 }
 
 #result-container #promoted-results .promotedCard .stockAndPriceContainer .totalPriceContainer {
@@ -328,6 +327,7 @@ body {
 #result-container .number-input > *:not(input) {
   cursor: pointer;
   border: 1px solid #9C9D9D;
+  color: #9C9D9D;
   box-sizing: border-box;
   font-weight: bold;
 }
@@ -342,6 +342,12 @@ h1 {
   font-weight: 600;
   font-size: 1.1em;
   margin: 12px 0;
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 h3 {
@@ -470,7 +476,7 @@ h5 {
     padding: 6px 10px;
     box-sizing: border-box;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     cursor: pointer;
   }
   #result-container .utilBar .sortList .sortLabel .dropDownIcon {
@@ -484,7 +490,7 @@ h5 {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
   }
   #result-container .utilBar .sortList .dropDown {
     width: 100%;
@@ -493,6 +499,8 @@ h5 {
     font-size: 0.85em;
     background: white;
     box-sizing: border-box;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    z-index: 2;
   }
   #result-container .utilBar .sortList .dropDown li {
     padding: 10px 5px 8px 10px;
@@ -537,10 +545,43 @@ h5 {
   #result-container .utilBar .sortList .dropDownRotate {
     transform: rotate(180deg);
   }
+  #result-container #promoted-results {
+    display: grid;
+    grid-auto-columns: 50% 50%;
+    grid-column-gap: 10px;
+    overflow-x: hidden;
+    -ms-scroll-snap-type: unset;
+    scroll-snap-type: unset;
+  }
+  #result-container #promoted-results .promotedCard {
+    scroll-snap-align: none;
+    display: grid;
+    grid-template-columns: 36% repeat(3, 19%);
+    grid-template-rows: repeat(3, 40px) 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+  #result-container #promoted-results .promotedCard .promoTag {
+    width: 44%;
+  }
+  #result-container #promoted-results .promotedCard .cardHeader {
+    grid-column: 2 / span 3;
+    grid-row: 1 /span 1;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout .addToCheckout object {
+    padding-right: 5px;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout .addToCheckout div {
+    font-size: 0.8em;
+    margin-right: 15px;
+  }
   h1 {
     font-weight: 600;
     font-size: 1.25em;
     margin: 25px 0;
+  }
+  h2 {
+    font-size: 1.1em;
   }
   .desktop {
     display: block;
@@ -552,8 +593,176 @@ h5 {
 }
 
 @media only screen and (min-width: 1024px) {
-  body {
-    background: red;
+  #result-container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  #result-container .utilBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #9C9D9D;
+    padding-bottom: 6px;
+  }
+  #result-container .utilBar .selectedFilters {
+    width: 106px;
+    display: inline-flex;
+    border: 1px solid #9C9D9D;
+    padding: 6px 10px;
+    margin: 0 auto 0 2px;
+  }
+  #result-container .utilBar .closeIcon {
+    width: 0.9em;
+    margin-left: 10px;
+  }
+  #result-container .utilBar .sortList {
+    position: relative;
+  }
+  #result-container .utilBar .sortList .outerBorder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid #9C9D9D;
+  }
+  #result-container .utilBar .sortList .sortLabel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+  }
+  #result-container .utilBar .sortList .sortLabel .dropDownIcon {
+    margin-left: 2px;
+  }
+  #result-container .utilBar .sortList .labelBackground {
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  #result-container .utilBar .sortList .dropDown {
+    width: 100%;
+    max-height: 0;
+    position: absolute;
+    font-size: 0.85em;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  #result-container .utilBar .sortList .dropDown li {
+    padding: 10px 5px 8px 10px;
+    opacity: 0;
+  }
+  #result-container .utilBar .sortList .dropDown li a {
+    display: block;
+    width: 100%;
+  }
+  #result-container .utilBar .sortList .dropDown li:first-of-type {
+    position: relative;
+    padding-top: 15px;
+  }
+  #result-container .utilBar .sortList .dropDown li:first-of-type:after {
+    content: "";
+    background: #F4F4F4;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    height: 2px;
+    width: 85%;
+  }
+  #result-container .utilBar .sortList .outerBorder, #result-container .utilBar .sortList .dropDown, #result-container .utilBar .sortList .dropDown li, #result-container .utilBar .sortList .labelBackground, #result-container .utilBar .sortList .dropDownIcon {
+    transition: 0.2s ease-in-out;
+  }
+  #result-container .utilBar .sortList .dropDown, #result-container .utilBar .sortList .labelBackground {
+    transform: translateX(200px);
+  }
+  #result-container .utilBar .sortList .dropDownMoveIn {
+    transform: translateX(0);
+  }
+  #result-container .utilBar .sortList .outerBorderMoveOut {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  #result-container .utilBar .sortList .dropDownExpend {
+    max-height: 500px;
+  }
+  #result-container .utilBar .sortList .dropDownExpend li {
+    opacity: 1;
+  }
+  #result-container .utilBar .sortList .dropDownRotate {
+    transform: rotate(180deg);
+  }
+  #result-container #promoted-results .promotedCard {
+    max-width: 100%;
+    height: 50%;
+    grid-template-columns: repeat(3, 32%);
+    grid-template-rows: repeat(3, 14%) 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+  #result-container #promoted-results .promotedCard .promoTag {
+    width: 44%;
+  }
+  #result-container #promoted-results .promotedCard .cardHeader {
+    grid-column: 2 / span 2;
+    grid-row: 1 /span 1;
+  }
+  #result-container #promoted-results .promotedCard .modelContainer {
+    grid-column: 2 / span 1;
+    grid-row: 2 /span 2;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-column: 3 / span 1;
+    grid-row: 2 /span 2;
+    font-size: 0.9em;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .unitPriceContainer {
+    display: flex;
+    justify-content: flex-start;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .stockState {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .stockState .textLabel {
+    margin: 0;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .stockState object {
+    margin: 0;
+    padding-left: 5px;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .unitPriceContainer {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .unitPriceContainer div:last-child {
+    padding-left: 5px;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer .totalPriceContainer {
+    grid-column: 2;
+    grid-row: 1 /span 2;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout {
+    justify-content: flex-start;
+    grid-column: 2 / span 2;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout .addToCheckout {
+    margin: 0 15px 0 auto;
   }
   .desktop {
     display: block;
@@ -561,8 +770,31 @@ h5 {
 }
 
 @media only screen and (min-width: 1366px) {
-  body {
-    background: rebeccapurple;
+  #result-container #promoted-results .promotedCard {
+    max-width: 100%;
+    height: 49%;
+    grid-template-columns: 20% 30% 1fr;
+    grid-template-rows: repeat(3, 13%) 43%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  #result-container #promoted-results .promotedCard .promoTag {
+    max-width: 200px;
+  }
+  #result-container #promoted-results .promotedCard .modelContainer {
+    font-size: 1em;
+  }
+  #result-container #promoted-results .promotedCard .stockAndPriceContainer {
+    font-size: 1em;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout {
+    margin: 8px 15px 0 0;
+  }
+  #result-container #promoted-results .promotedCard .sendToCheckout .addToCheckout {
+    margin: 0 15px 0 auto;
+  }
+  h2 {
+    font-size: 1.3em;
   }
   .desktop {
     display: block;

@@ -1,6 +1,189 @@
 @media only screen and (min-width: 1024px) {
-  body {
-    background: red;
+  //////// results section
+  #result-container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+
+    .utilBar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 1px solid $border;
+      padding-bottom: 6px;
+      .selectedFilters {
+        width: 106px;
+        display: inline-flex;
+        border: 1px solid $border;
+        padding: 6px 10px;
+        margin: 0 auto 0 2px;
+      }
+      .closeIcon {
+        width: 0.9em;
+        margin-left: 10px;
+      }
+      .sortList {
+        position: relative;
+
+        .outerBorder {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          border: 1px solid $border;
+        }
+        .sortLabel {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 6px 10px;
+          box-sizing: border-box;
+          position: relative;
+          z-index: 3;
+          cursor: pointer;
+
+          .dropDownIcon {
+            margin-left: 2px;
+          }
+        }
+        .labelBackground {
+          width: 100%;
+          height: 100%;
+          background: white;
+          box-sizing: border-box;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+        }
+        .dropDown {
+          width: 100%;
+          max-height: 0;
+          position: absolute;
+          font-size: 0.85em;
+          background: white;
+          box-sizing: border-box;
+          box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.1);
+          z-index: 2;
+
+          li {
+            padding: 10px 5px 8px 10px;
+            opacity: 0;
+            a {
+              display: block;
+              width: 100%;
+            }
+            &:first-of-type {
+              position: relative;
+              padding-top: 15px;
+              &:after {
+                content: "";
+                background: $background;
+                position: absolute;
+                top: 0;
+                left: 5%;
+                height: 2px;
+                width: 85%;
+              }
+            }
+          }
+        }
+        .outerBorder, .dropDown, .dropDown li, .labelBackground, .dropDownIcon  {
+          transition: 0.2s ease-in-out;
+        }
+        .dropDown, .labelBackground {
+          transform: translateX(200px);
+        }
+        .dropDownMoveIn {
+          transform: translateX(0);
+        }
+        .outerBorderMoveOut {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        .dropDownExpend {
+          max-height: 500px;
+        }
+        .dropDownExpend li{
+          opacity: 1;
+        }
+        .dropDownRotate {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    #promoted-results {
+
+      .promotedCard {
+        max-width: 100%;
+        height: 50%;
+        grid-template-columns: repeat(3, 32%);
+        grid-template-rows: repeat(3, 14%) 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        .promoTag {
+          width: 44%;
+        }
+        .cardHeader {
+          grid-column: 2 / span 2;
+          grid-row: 1 /span 1;
+        }
+        .modelContainer {
+          grid-column: 2 / span 1;
+          grid-row: 2 /span 2;
+
+        }
+        .stockAndPriceContainer {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-column-gap: 5px;
+
+          grid-column: 3 / span 1;
+          grid-row: 2 /span 2;
+          font-size: 0.9em;
+
+          .unitPriceContainer {
+            display: flex;
+            justify-content: flex-start;
+          }
+          .stockState {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .textLabel {
+              margin: 0;
+            }
+            object {
+              margin: 0;
+              padding-left: 5px;
+            }
+          }
+          .unitPriceContainer {
+            grid-column: 1;
+            grid-row: 2;
+            div:last-child {
+              padding-left: 5px;
+            }
+          }
+          .totalPriceContainer {
+            grid-column: 2;
+            grid-row: 1 /span 2;
+          }
+
+        }
+        .sendToCheckout {
+          justify-content: flex-start;
+          grid-column: 2 / span 2;
+
+          .addToCheckout {
+            margin: 0 15px 0 auto;
+
+          }
+        }
+      }
+    }
   }
   /////// Display classes
   .desktop {
