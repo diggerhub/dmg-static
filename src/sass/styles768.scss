@@ -53,13 +53,7 @@
     width: 95%;
     height: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid $border;
 
-    h1 {
-      font-weight: 600;
-      font-size: 1.25em;
-      margin: 25px 0;
-    }
     .utilBar {
       display: flex;
       justify-content: flex-end;
@@ -164,25 +158,12 @@
         }
       }
     }
-
-    #promoted-results {
-      background: #FFA500;
-      height: 200px;
-    }
   }
-
-
   //////// Text styling
-  h4 {
-    display: inline-block;
-    font-size: 0.9em;
-  }
-
-  h5 {
-    color: $text-nav;
-    font-size: 0.75em;
-    font-weight: 500;
-    text-align: center;
+  h1 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin: 25px 0;
   }
   /////// Display classes
   .desktop {

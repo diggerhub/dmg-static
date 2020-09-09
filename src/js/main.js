@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
           dropDownBg        = document.getElementsByClassName('labelBackground')[0],
           dropDownLabel     = document.getElementsByClassName('sortLabel')[0].getElementsByTagName('h4')[0],
           dropDown          = document.getElementsByClassName('dropDown')[0],
-          accountParent     = document.getElementsByClassName('account')[0];
+          accountParent     = document.getElementsByClassName('account')[0],
+          counterTarget     = document.getElementsByClassName('counter')[0],
+          counterControls   = document.getElementsByClassName('increments');
 
 
     let isDropDownExtended = () => dropDown.classList.contains('dropDownExpend');
-
     let BgAnimationHandler = event => {
         dropDown.classList.add('dropDownExpend');
         dropDownIcon.classList.add('dropDownRotate');
         dropDownBg.removeEventListener('transitionend', BgAnimationHandler);
-    }
-
+    };
     let updateDropDownLabel = target => {
         let oldLabel = dropDownLabel.innerHTML;
         dropDownLabel.innerHTML = target.text;
@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             elm.classList.remove('hidden');
             if (elm.innerText === dropDownLabel.innerHTML) elm.classList.add('hidden');
         }
-    }
-
+    };
     let dropDownAnimationHandler = event => {
         for (elm of dropDownParent.children) {
             if (elm.classList.contains('outerBorder')) {
@@ -34,7 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         dropDown.removeEventListener('transitionend', dropDownAnimationHandler);
+    };
+    let updateTotalprice = (amount, unitPrice) => {
+        console.log(amount, unitPrice);
     }
+    let counterControlsHandler = () => {
+        for (let i = 0; i < 2; i++) {
+            counterControls[i].addEventListener('click', event => {
+                if (counterControls[i].classList.contains('addIncrement')) {
+                    counterTarget.value++
+                } else {
+                    if (counterTarget.value > 1) counterTarget.value--
+                }
+            })
+        }
+    };
 
     dropDownParent.addEventListener('click', event => {
         if (event.target.tagName === 'A') updateDropDownLabel(event.target);
@@ -54,10 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
             dropDown.addEventListener('transitionend', dropDownAnimationHandler)
         }
     });
-    accountParent.addEventListener('click', event =>
-        accountParent.children[2].classList.contains('fadeIn')
-            ? accountParent.children[2].classList.remove('fadeIn')
-            : accountParent.children[2].classList.add('fadeIn')
-    )
+    accountParent.addEventListener('click', event => {
+        if (accountParent.children[2].classList.contains('fadeIn')) {
+            accountParent.children[2].classList.remove('fadeIn')
+        } else {
+            accountParent.children[2].classList.add('fadeIn')
+        }
+    });
+    counterTarget.addEventListener('input', event => {
+        console.log(event.target.value);
+    })
+    counterControlsHandler();
 
 });
