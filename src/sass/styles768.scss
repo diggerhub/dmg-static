@@ -1,7 +1,4 @@
 @media only screen and (min-width: 768px) {
-  body {
-    background: $background;
-  }
   //////// Top bar elements
   #top-bar {
     height: 80px;
@@ -53,7 +50,6 @@
     width: 95%;
     height: 100%;
     margin: 0 auto;
-
     .utilBar {
       display: flex;
       justify-content: flex-end;
@@ -68,7 +64,8 @@
         margin: 0 auto 0 2px;
       }
       .closeIcon {
-        width: 0.9em;
+        width: 12px;
+        height: 12px;
         margin-left: 10px;
       }
       .sortList {
@@ -161,14 +158,12 @@
         }
       }
     }
-
     #promoted-results {
       display: grid;
       grid-auto-columns: 50% 50%;
       grid-column-gap: 10px;
       overflow-x: hidden;
       scroll-snap-type: unset;
-
       .promotedCard {
         scroll-snap-align: none;
         display: grid;
@@ -188,9 +183,42 @@
             padding-right: 5px;
           }
           div {
-            font-size: 0.8em;
-            margin-right: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
           }
+        }
+      }
+    }
+    #query-results {
+      display: grid;
+      grid-template-columns: 50% calc(50% - 10px);
+      grid-auto-rows: auto;
+      grid-column-gap: 10px;
+      .resultCard {
+        grid-template-rows: repeat(2, 30%) auto;
+        grid-row-gap: 4px;
+        padding: 5px 10px;
+        margin-bottom: 15px;
+        .cardHeader {
+          padding: 5px 0;
+          font-size: 2.1vw;
+        }
+        .modelContainer {
+          padding: 5px 0;
+          font-size: 1.8vw;
+
+          div:last-child {
+            margin-top: 5px;
+          }
+        }
+        .stockAndPriceContainer {
+          font-size: 1.8vw;
+        }
+        .sendToCheckout {
+          font-size: 0.8em;
+          margin-top: 15px;
+          padding-bottom: 10px;
         }
       }
     }

@@ -2,36 +2,43 @@
 
   //////// results section
   #result-container {
-
     #promoted-results {
       .promotedCard {
-        max-width: 100%;
-        height: 49%;
-        grid-template-columns: 20% 30% 1fr;
-        grid-template-rows: repeat(3, 13%) 43%;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
         .promoTag {
           max-width: 200px;
         }
-
-        .modelContainer {
-          font-size: 1em;
+        .modelContainer, .stockAndPriceContainer {
+          font-size: 1.1em;
         }
-        .stockAndPriceContainer {
-          font-size: 1em;
-
+        .stockAndPriceContainer .totalPriceContainer .textLabel{
+          margin-bottom: 16px;
         }
-        .sendToCheckout {
-          margin: 8px 15px 0 0 ;
 
-          .addToCheckout {
-            margin: 0 15px 0 auto;
-
-          }
+      }
+    }
+    #query-results {
+      .resultCardLong {
+        grid-template-columns: 20% 10% 13% 10% 9% 12% 14% 11%;
+        .cardHeader {
+          font-size: 1.3vw;
+          margin-left: 10px;
+        }
+      }
+      .addToCheckout{
+        width: 100%;
+        max-width: 143px;
+        justify-self: flex-end;
+        .addCartIcon {
+          padding: 0 5px;
+        }
+        div {
+          font-size: 12px;
+          font-weight: 600;
+          margin-right: 8px;
         }
       }
     }
+
   }
   //////// Text styling
 
@@ -39,7 +46,7 @@
     font-size: 1.3em;
   }
   /////// Display classes
-  .desktop {
+  .desktop, .hiddenTablet {
     display: block;
   }
 }
