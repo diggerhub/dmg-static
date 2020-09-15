@@ -49,17 +49,19 @@ let dropDownAnimationHandler = (event, parent, dropDownElement) => {
 };
 /**
  * Add or removes 1 when user clicks on the counter +/- elements
- * @param Controls - The counter controls
- * @param target - The counter input element
+ * @param counters A list of all the counter css class elements
  */
-let counterControlsHandler = (Controls, target) => {
-    for (let i = 0; i < 2; i++) {
-        Controls[i].addEventListener('click', event => {
-            if (Controls[i].classList.contains('addIncrement')) {
-                target.value++
-            } else {
-                if (target.value > 1) target.value--
+let counterControlsHandler = (counters) => {
+    for (let counter of counters) {
+        counter.addEventListener('click', (event) => {
+            if (event.target.classList.contains('addIncrement')) {
+                counter.children[1].value++;
+            } else if (event.target.classList.contains('removeIncrement')){
+                if (counter.children[1].value > 1) counter.children[1].value--;
             }
+        })
+        counter.children[1].addEventListener('change', (event) => {
+            if (event.target.value < 1) event.target.value = 1
         })
     }
 };
@@ -114,10 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
           dropDownLabel     = document.getElementsByClassName('sortLabel')[0].getElementsByTagName('h4')[0],
           dropDown          = document.getElementsByClassName('dropDown')[0],
           accountParent     = document.getElementsByClassName('account')[0],
-          counterTarget     = document.getElementsByClassName('counter')[0],
-          counterControls   = document.getElementsByClassName('increments');
+          counterTargets     = document.getElementsByClassName('number-input');
 
-    counterControlsHandler(counterControls, counterTarget);
+    counterControlsHandler(counterTargets);
     dropDownClickHandler(dropDownParent, dropDownBg, dropDown, dropDownIcon);
     accountMenuClickHandler(accountParent);
 });

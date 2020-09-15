@@ -38,12 +38,12 @@ let css = () => {
 let js = () => {
     return gulp
         .src(dir.src + 'js/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(terser({
-            keep_fnames: true,
-            mangle: false
-        }))
-        .pipe(sourcemaps.write('./'))
+        // .pipe(sourcemaps.init())
+        // .pipe(terser({
+        //     keep_fnames: true,
+        //     mangle: false
+        // }))
+        // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(dir.dest + "js"))
         .pipe(browsersync.stream());
 };
